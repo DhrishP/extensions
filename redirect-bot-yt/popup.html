@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YouTube Filter</title>
+    <style>
+      body {
+        width: 300px;
+        padding: 20px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f5f5f5;
+        color: #333;
+      }
+      h2 {
+        color: #ff0000;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.5em;
+      }
+      #controls {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 20px;
+      }
+      #new-word {
+        flex: 1;
+        padding: 8px 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 14px;
+        transition: border-color 0.2s;
+      }
+      #new-word:focus {
+        outline: none;
+        border-color: #ff0000;
+        box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.1);
+      }
+      #add-btn {
+        padding: 8px 16px;
+        background-color: #ff0000;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.2s;
+      }
+      #add-btn:hover {
+        background-color: #cc0000;
+      }
+      #word-list {
+        margin: 10px 0;
+        max-height: 200px;
+        overflow-y: auto;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .word-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 12px;
+        border-bottom: 1px solid #eee;
+        transition: background-color 0.2s;
+      }
+      .word-item:last-child {
+        border-bottom: none;
+      }
+      .word-item:hover {
+        background-color: #f9f9f9;
+      }
+      .remove-btn {
+        color: #ff0000;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 0 5px;
+        transition: color 0.2s;
+      }
+      .remove-btn:hover {
+        color: #cc0000;
+      }
+      .info-text {
+        color: #666;
+        font-size: 12px;
+        text-align: center;
+        margin-top: 10px;
+        line-height: 1.4;
+      }
+      .empty-state {
+        color: #666;
+        text-align: center;
+        padding: 20px;
+        font-style: italic;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>YouTube Filter</h2>
+    <div id="controls">
+      <input type="text" id="new-word" placeholder="Add filter word" />
+      <button id="add-btn">Add</button>
+    </div>
+    <div id="word-list">
+      <div class="empty-state">No filter words added yet</div>
+    </div>
+    <div class="info-text">
+      Add words to block related YouTube content<br />Press Enter to add words
+    </div>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
