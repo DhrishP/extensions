@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Smart Transcript",
+  "version": "1.0",
+  "description": "Analyzes YouTube video transcripts using Gemini AI to identify content type and key points",
+  "permissions": ["activeTab", "storage", "scripting", "tabs"],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  }
+}

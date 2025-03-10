@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Smart Transcript - Test Page</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    h1 {
+      color: #cc0000;
+      border-bottom: 2px solid #cc0000;
+      padding-bottom: 10px;
+    }
+    h2 {
+      color: #333;
+      margin-top: 30px;
+    }
+    .test-section {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 15px;
+      margin: 20px 0;
+    }
+    code {
+      background-color: #f0f0f0;
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-family: Consolas, Monaco, 'Andale Mono', monospace;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    .button {
+      display: inline-block;
+      background-color: #cc0000;
+      color: white;
+      padding: 8px 15px;
+      text-decoration: none;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+    .button:hover {
+      background-color: #990000;
+    }
+  </style>
+</head>
+<body>
+  <h1>YouTube Smart Transcript - Test Page</h1>
+  
+  <p>This page helps you test your YouTube Smart Transcript extension. Follow the instructions below to verify that your extension is working correctly.</p>
+  
+  <h2>Test Cases</h2>
+  
+  <div class="test-section">
+    <h3>Test Case 1: Non-Coding Video</h3>
+    <p>Visit a YouTube video that is not related to coding (e.g., a music video, documentary, etc.).</p>
+    <ol>
+      <li>Go to a non-coding YouTube video (e.g., <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">this example</a>)</li>
+      <li>Click on the YouTube Smart Transcript extension icon</li>
+      <li>Click the "Get Transcript" button</li>
+      <li>Expected result: You should see important points from the video transcript</li>
+    </ol>
+  </div>
+  
+  <div class="test-section">
+    <h3>Test Case 2: Coding Video</h3>
+    <p>Visit a YouTube video that is related to coding or programming.</p>
+    <ol>
+      <li>Go to a coding-related YouTube video (e.g., <a href="https://www.youtube.com/watch?v=PkZNo7MFNFg" target="_blank">this JavaScript tutorial</a>)</li>
+      <li>Click on the YouTube Smart Transcript extension icon</li>
+      <li>Click the "Get Transcript" button</li>
+      <li>Expected result: You should be redirected to YouTube's home page</li>
+    </ol>
+  </div>
+  
+  <h2>Troubleshooting</h2>
+  
+  <ul>
+    <li><strong>Extension icon not appearing:</strong> Make sure the extension is properly installed. Go to <code>chrome://extensions/</code> and check if it's enabled.</li>
+    <li><strong>Transcript not loading:</strong> Some videos may not have transcripts available. Try with a different video.</li>
+    <li><strong>Incorrect detection:</strong> The extension uses simple keyword matching to detect coding videos. It may not always be accurate.</li>
+    <li><strong>Extension not working at all:</strong> Check the browser console for any error messages.</li>
+  </ul>
+  
+  <h2>Next Steps</h2>
+  
+  <p>After testing, you might want to:</p>
+  
+  <ul>
+    <li>Customize the extension by modifying the code</li>
+    <li>Create proper icons for the extension</li>
+    <li>Improve the transcript extraction and analysis algorithms</li>
+    <li>Add more features like saving transcripts or customizing settings</li>
+  </ul>
+  
+  <p>
+    <a href="README.md" class="button">Back to Documentation</a>
+  </p>
+</body>
+</html>

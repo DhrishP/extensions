@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>YouTube Smart Transcript</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>YouTube Smart Transcript</h1>
+
+      <div id="settings-container">
+        <div class="api-key-section">
+          <label for="gemini-api-key">Gemini API Key:</label>
+          <input
+            type="password"
+            id="gemini-api-key"
+            placeholder="Enter your Gemini API key"
+          />
+          <button id="save-api-key">Save Key</button>
+          <span id="api-key-status"></span>
+        </div>
+        <a
+          href="https://ai.google.dev/gemini-api/docs/api-key"
+          target="_blank"
+          class="help-link"
+          >Get a Gemini API key</a
+        >
+      </div>
+
+      <div id="status-message">
+        Click the button below to get the transcript
+      </div>
+      <button id="get-transcript">Get Transcript</button>
+      <div id="loading" class="hidden">
+        <div class="spinner"></div>
+        <p>Processing transcript...</p>
+      </div>
+      <div id="transcript-container" class="hidden">
+        <h2>Analysis Results</h2>
+        <div id="transcript-content"></div>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
