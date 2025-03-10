@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Website Blocker</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Website Blocker</h1>
+      <div class="input-group">
+        <input
+          type="text"
+          id="websiteInput"
+          placeholder="Enter website (e.g., facebook.com)"
+        />
+        <button id="addButton">Add</button>
+      </div>
+      <div class="blocked-sites">
+        <h2>Blocked Websites</h2>
+        <ul id="blockedList"></ul>
+      </div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
