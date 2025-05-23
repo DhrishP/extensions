@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Speed Limiter",
+  "version": "1.0",
+  "description": "Limits YouTube playback speed to 1x",
+  "permissions": ["scripting", "tabs"],
+  "content_scripts": [
+    {
+      "matches": ["*://www.youtube.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
