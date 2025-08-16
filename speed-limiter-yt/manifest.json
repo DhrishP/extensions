@@ -2,8 +2,12 @@
   "manifest_version": 3,
   "name": "YouTube Speed Limiter",
   "version": "1.0",
-  "description": "Limits YouTube playback speed to 1x",
-  "permissions": ["scripting", "tabs"],
+  "description": "Limit YouTube playback speed to a selectable maximum",
+  "permissions": ["scripting", "tabs", "storage"],
+  "action": {
+    "default_title": "Set max playback speed",
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "matches": ["*://www.youtube.com/*"],
