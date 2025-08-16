@@ -2,12 +2,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const websiteInput = document.getElementById("websiteInput");
   const addButton = document.getElementById("addButton");
   const blockedList = document.getElementById("blockedList");
+  const redirectInput = document.getElementById("redirectInput");
+  const setRedirectButton = document.getElementById("setRedirectButton");
+  const currentRedirect = document.getElementById("currentRedirect");
 
-  // Load blocked websites when popup opens
+  // Load data when popup opens
   loadBlockedWebsites();
+  loadRedirectSite();
 
   addButton.addEventListener("click", function () {
     addWebsite();
+  });
+
+  setRedirectButton.addEventListener("click", function () {
+    setRedirectSite();
   });
 
   websiteInput.addEventListener("keypress", function (e) {
@@ -15,6 +23,36 @@ document.addEventListener("DOMContentLoaded", function () {
       addWebsite();
     }
   });
+
+  redirectInput.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      setRedirectSite();
+    }
+  });
+
+  function setRedirectSite() {
+    const url = redirectInput.value.trim();
+    if (url) {
+      // Validate URL format
+      try {
+        new URL(url);
+        chrome.storage.sync.set({ redirectSite: url }, function () {
+          redirectInput.value = "";
+          loadRedirectSite();
+        });
+      } catch (error) {
+        alert("Please enter a valid URL (e.g., https://www.google.com)");
+      }
+    }
+  }
+
+  function loadRedirectSite() {
+    chrome.storage.sync.get(["redirectSite"], function (result) {
+      const redirectSite = result.redirectSite || "https://www.google.com";
+      currentRedirect.textContent = redirectSite;
+      redirectInput.value = redirectSite;
+    });
+  }
 
   function addWebsite() {
     const url = websiteInput.value.trim().toLowerCase();

@@ -1,5 +1,5 @@
 body {
-  width: 300px;
+  width: 350px;
   padding: 15px;
   font-family: Arial, sans-serif;
 }
@@ -7,18 +7,53 @@ body {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
 }
 
 h1 {
   font-size: 20px;
   margin: 0;
   color: #333;
+  text-align: center;
+}
+
+h2 {
+  font-size: 16px;
+  margin: 0 0 10px 0;
+  color: #555;
+}
+
+.description {
+  font-size: 12px;
+  color: #666;
+  margin: 0 0 10px 0;
+  line-height: 1.4;
+}
+
+.redirect-section {
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.current-redirect {
+  margin-top: 10px;
+  padding: 8px;
+  background-color: #e3f2fd;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #1976d2;
+}
+
+.current-redirect span:first-child {
+  font-weight: bold;
 }
 
 .input-group {
   display: flex;
   gap: 8px;
+  margin-bottom: 10px;
 }
 
 input {
@@ -26,6 +61,13 @@ input {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 12px;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4caf50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
 button {
@@ -35,6 +77,8 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 12px;
+  white-space: nowrap;
 }
 
 button:hover {
@@ -42,12 +86,10 @@ button:hover {
 }
 
 .blocked-sites {
-  margin-top: 10px;
-}
-
-h2 {
-  font-size: 16px;
-  margin: 0 0 10px 0;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
 }
 
 #blockedList {
@@ -61,15 +103,21 @@ h2 {
   justify-content: space-between;
   align-items: center;
   padding: 8px;
-  background-color: #f5f5f5;
+  background-color: white;
   margin-bottom: 5px;
   border-radius: 4px;
+  border: 1px solid #e9ecef;
+}
+
+.blocked-item span {
+  font-size: 12px;
+  color: #333;
 }
 
 .remove-btn {
   background-color: #ff4444;
   padding: 4px 8px;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .remove-btn:hover {

@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Website Blocker</title>
+    <title>Website Blocker & Redirector</title>
     <link rel="stylesheet" href="popup.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Website Blocker</h1>
-      <div class="input-group">
-        <input
-          type="text"
-          id="websiteInput"
-          placeholder="Enter website (e.g., facebook.com)"
-        />
-        <button id="addButton">Add</button>
+      <h1>Website Blocker & Redirector</h1>
+      
+      <!-- Redirect Site Section -->
+      <div class="redirect-section">
+        <h2>Redirect Site</h2>
+        <p class="description">When you visit a blocked site, you'll be redirected here:</p>
+        <div class="input-group">
+          <input
+            type="url"
+            id="redirectInput"
+            placeholder="Enter redirect URL (e.g., https://www.google.com)"
+          />
+          <button id="setRedirectButton">Set</button>
+        </div>
+        <div class="current-redirect">
+          <span>Current: </span>
+          <span id="currentRedirect">Loading...</span>
+        </div>
       </div>
+
+      <!-- Blocked Websites Section -->
       <div class="blocked-sites">
         <h2>Blocked Websites</h2>
+        <p class="description">These sites will redirect to your chosen destination:</p>
+        <div class="input-group">
+          <input
+            type="text"
+            id="websiteInput"
+            placeholder="Enter website (e.g., facebook.com)"
+          />
+          <button id="addButton">Add</button>
+        </div>
         <ul id="blockedList"></ul>
       </div>
     </div>

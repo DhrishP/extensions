@@ -1,11 +1,15 @@
 let rules = [];
+let redirectUrl = "https://www.google.com"; // Default redirect URL
 
 // Function to update blocking rules
 async function updateRules() {
   try {
-    const { blockedSites = [] } = await chrome.storage.sync.get([
+    const { blockedSites = [], redirectSite = "https://www.google.com" } = await chrome.storage.sync.get([
       "blockedSites",
+      "redirectSite"
     ]);
+
+    redirectUrl = redirectSite;
 
     // Remove existing rules
     const existingRules = await chrome.declarativeNetRequest.getDynamicRules();
@@ -17,7 +21,7 @@ async function updateRules() {
     rules = blockedSites.map((site, index) => ({
       id: index + 1,
       priority: 1,
-      action: { type: "block" },
+      action: { type: "redirect", redirect: { url: redirectUrl } },
       condition: {
         urlFilter: site,
         resourceTypes: ["main_frame"],
@@ -35,7 +39,7 @@ async function updateRules() {
 
 // Listen for changes in storage
 chrome.storage.onChanged.addListener((changes, namespace) => {
-  if (namespace === "sync" && changes.blockedSites) {
+  if (namespace === "sync" && (changes.blockedSites || changes.redirectSite)) {
     updateRules();
   }
 });
