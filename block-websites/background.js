@@ -1,15 +1,21 @@
 let rules = [];
-let redirectUrl = "https://www.google.com"; // Default redirect URL
+let redirectUrls = ["https://www.google.com"]; // Default redirect URLs
+
+// Function to get a random redirect URL
+function getRandomRedirectUrl() {
+  const randomIndex = Math.floor(Math.random() * redirectUrls.length);
+  return redirectUrls[randomIndex];
+}
 
 // Function to update blocking rules
 async function updateRules() {
   try {
-    const { blockedSites = [], redirectSite = "https://www.google.com" } = await chrome.storage.sync.get([
+    const { blockedSites = [], redirectSites = ["https://www.google.com"] } = await chrome.storage.sync.get([
       "blockedSites",
-      "redirectSite"
+      "redirectSites"
     ]);
 
-    redirectUrl = redirectSite;
+    redirectUrls = redirectSites;
 
     // Remove existing rules
     const existingRules = await chrome.declarativeNetRequest.getDynamicRules();
@@ -21,7 +27,7 @@ async function updateRules() {
     rules = blockedSites.map((site, index) => ({
       id: index + 1,
       priority: 1,
-      action: { type: "redirect", redirect: { url: redirectUrl } },
+      action: { type: "redirect", redirect: { url: getRandomRedirectUrl() } },
       condition: {
         urlFilter: site,
         resourceTypes: ["main_frame"],
@@ -39,7 +45,7 @@ async function updateRules() {
 
 // Listen for changes in storage
 chrome.storage.onChanged.addListener((changes, namespace) => {
-  if (namespace === "sync" && (changes.blockedSites || changes.redirectSite)) {
+  if (namespace === "sync" && (changes.blockedSites || changes.redirectSites)) {
     updateRules();
   }
 });

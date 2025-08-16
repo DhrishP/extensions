@@ -5,16 +5,18 @@ A Chrome extension that blocks distracting websites and redirects users to produ
 ## Features
 
 - **Block Distracting Websites**: Add websites to a block list to prevent access
-- **Smart Redirects**: Instead of showing a block page, users are automatically redirected to a chosen productive website
-- **Customizable Redirect Destination**: Set your own redirect URL (defaults to Google)
-- **Easy Management**: Simple popup interface to add/remove blocked sites and change redirect destinations
+- **Multiple Redirect Sites**: Add multiple productive websites to redirect to
+- **Random Redirect Selection**: Each time you visit a blocked site, you're randomly redirected to one of your chosen productive alternatives
+- **Customizable Redirect Destinations**: Set your own collection of redirect URLs (defaults to Google)
+- **Easy Management**: Simple popup interface to add/remove blocked sites and manage redirect destinations
 - **Persistent Storage**: Your settings are saved across browser sessions
 
 ## How It Works
 
 1. **Blocking**: When you try to visit a blocked website, the extension intercepts the request
-2. **Redirecting**: Instead of blocking access completely, you're automatically redirected to your chosen productive website
-3. **Productivity**: This approach helps you stay focused by replacing distractions with productive alternatives
+2. **Random Redirecting**: Instead of blocking access completely, you're automatically redirected to a randomly selected productive website from your list
+3. **Variety**: Each visit to a blocked site results in a different productive destination, keeping the experience fresh
+4. **Productivity**: This approach helps you stay focused by replacing distractions with productive alternatives
 
 ## Installation
 
@@ -26,15 +28,22 @@ A Chrome extension that blocks distracting websites and redirects users to produ
 
 ## Usage
 
-### Setting a Redirect Site
+### Adding Redirect Sites
 1. Click the extension icon to open the popup
-2. In the "Redirect Site" section, enter a URL (e.g., `https://www.google.com`)
-3. Click "Set" to save your redirect destination
+2. In the "Redirect Sites" section, enter a URL (e.g., `https://www.google.com`)
+3. Click "Add" to add it to your redirect list
+4. You can add multiple redirect sites for variety
+
+### Managing Redirect Sites
+- **View**: All your redirect sites are displayed in a list
+- **Remove**: Click "Remove" next to any redirect site to delete it
+- **Minimum**: You must have at least one redirect site at all times
+- **Random Selection**: Each blocked site visit randomly chooses from your redirect list
 
 ### Adding Blocked Websites
 1. In the "Blocked Websites" section, enter a domain (e.g., `facebook.com`)
 2. Click "Add" to add it to your block list
-3. The site will now redirect to your chosen destination when accessed
+3. The site will now redirect to a random destination from your redirect list when accessed
 
 ### Removing Blocked Websites
 1. Find the website in your blocked list
@@ -42,14 +51,14 @@ A Chrome extension that blocks distracting websites and redirects users to produ
 
 ## Example Use Cases
 
-- **Social Media**: Redirect Facebook, Twitter, Instagram to productivity tools
-- **Entertainment**: Redirect YouTube, Netflix to learning platforms
-- **Gaming**: Redirect gaming sites to coding tutorials or documentation
-- **News**: Redirect news sites to educational resources
+- **Social Media**: Redirect Facebook, Twitter, Instagram to productivity tools (Notion, Trello, Asana)
+- **Entertainment**: Redirect YouTube, Netflix to learning platforms (Coursera, Udemy, Khan Academy)
+- **Gaming**: Redirect gaming sites to coding tutorials, documentation, or project management tools
+- **News**: Redirect news sites to educational resources, skill-building platforms, or productivity apps
 
 ## Default Settings
 
-- **Default Redirect**: `https://www.google.com`
+- **Default Redirect**: `https://www.google.com` (always included)
 - **Storage**: Uses Chrome's sync storage for cross-device settings
 - **Permissions**: Requires access to all URLs and storage for functionality
 
@@ -58,19 +67,22 @@ A Chrome extension that blocks distracting websites and redirects users to produ
 - **Manifest Version**: 3 (latest Chrome extension standard)
 - **Permissions**: `storage`, `declarativeNetRequest`, `tabs`
 - **Host Permissions**: `<all_urls>` for blocking functionality
-- **Background Script**: Service worker that handles URL interception and redirects
+- **Background Script**: Service worker that handles URL interception and random redirects
+- **Random Selection**: Uses JavaScript's Math.random() for unbiased selection
 
 ## Privacy
 
 - No data is sent to external servers
 - All settings are stored locally in your browser
 - The extension only accesses URLs you explicitly block
+- Random selection happens locally in your browser
 
 ## Troubleshooting
 
 - **Extension not working**: Make sure it's enabled in `chrome://extensions/`
 - **Sites not redirecting**: Check that the domain is correctly added (e.g., `facebook.com` not `www.facebook.com`)
-- **Redirect not working**: Verify the redirect URL is valid and accessible
+- **Redirect not working**: Verify your redirect URLs are valid and accessible
+- **No variety in redirects**: Make sure you have multiple redirect sites added
 
 ## Contributing
 
